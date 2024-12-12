@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Desarrollador Full Stack",
+    "description": "Estamos buscando un desarrollador full stack talentoso para unirse a nuestro equipo dinámico. El candidato ideal tendrá una sólida experiencia en desarrollo web y una pasión por crear aplicaciones innovadoras.",
+    "identifier": {
+      "name": "Tech Solutions Inc.",
+      "value": "TSI-DEV-001",
+      "siret": "12345678901234",
+      "nafCode": "6201Z"
+    },
+    "datePosted": "2024-07-12T10:00:00Z",
+    "validThrough": "2024-08-12T23:59:59Z",
+    "url": "https://techsolutions.com/jobs/full-stack-developer",
+    "applyUrl": "https://techsolutions.com/jobs/full-stack-developer/apply",
+    "employmentType": "TiempoCompleto",
+    "employmentLevel": "mid",
+    "hiringOrganization": {
+      "name": "Tech Solutions Inc.",
+      "sameAs": "https://techsolutions.com",
+      "logo": "https://techsolutions.com/logo.png"
+    },
+    "recruiter": {
+      "name": "Marie Dupont",
+      "email": "marie.dupont@techsolutions.com",
+      "phone": "0123456789"
+    },
+    "jobLocation": {
+      "streetAddress": "10 Calle de la Paz",
+      "addressLocality": "Barcelona",
+      "addressRegion": "Cataluña",
+      "postalCode": "08002",
+      "addressCountry": "España",
+      "isoCountry": "ES"
+    },
+    "remoteStatus": "hybrid",
+    "baseSalary": {
+      "currency": "EUR",
+      "value": 45000,
+      "unitText": "Año"
+    },
+    "qualifications": "Grado en informática o campo relacionado. Mínimo 3 años de experiencia en desarrollo web.",
+    "responsibilities": "Desarrollar y mantener aplicaciones web. Colaborar con los equipos de diseño y producto.",
+    "skills": "JavaScript, React, Node.js, HTML, CSS",
+    "incentiveCompensation": "Bono anual basado en el rendimiento.",
+    "industry": "Tecnología de la Información",
+    "workHours": "35 horas por semana",
+    "jobBenefits": ["Seguro de salud", "Vales de comida", "Trabajo remoto flexible"],
+    "applicationInstructions": "Por favor, postule en línea enviando su currículum y una carta de presentación.",
+    "nonDiscriminationPolicy": "Somos un empleador que promueve la igualdad de oportunidades y no discriminamos.",
+    "dataProtectionPolicy": "Sus datos personales serán tratados de acuerdo con nuestra política de privacidad disponible en nuestro sitio web."
+  }
+]
