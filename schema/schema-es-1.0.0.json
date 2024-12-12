@@ -1,0 +1,220 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Oferta de trabajo",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "El título del puesto."
+    },
+    "description": {
+      "type": "string",
+      "description": "Una descripción detallada de las responsabilidades y requisitos del puesto."
+    },
+    "identifier": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "El nombre de la empresa que ofrece el puesto."
+        },
+        "value": {
+          "type": "string",
+          "description": "Un identificador único para la oferta de trabajo."
+        },
+        "siret": {
+          "type": "string",
+          "description": "El número SIRET de la empresa."
+        },
+        "nafCode": {
+          "type": "string",
+          "description": "El código NAF de la actividad principal de la empresa."
+        }
+      },
+      "required": ["name", "value", "siret", "nafCode"]
+    },
+    "datePosted": {
+      "type": "string",
+      "format": "date-time",
+      "description": "La fecha y hora de publicación de la oferta."
+    },
+    "validThrough": {
+      "type": "string",
+      "format": "date-time",
+      "description": "La fecha y hora hasta la cual la oferta es válida."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "La URL del anuncio del trabajo."
+    },
+    "applyUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "La URL para postularse a la oferta."
+    },
+    "employmentType": {
+      "type": "string",
+      "enum": ["TiempoCompleto", "MedioTiempo", "Contrato", "Temporal", "Pasantía", "Otro"],
+      "description": "El tipo de empleo ofrecido."
+    },
+    "employmentLevel": {
+      "type": "string",
+      "enum": ["none", "senior", "mid", "junior"],
+      "description": "El nivel de empleo."
+    },
+    "hiringOrganization": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "El nombre de la organización que contrata."
+        },
+        "sameAs": {
+          "type": "string",
+          "format": "uri",
+          "description": "La URL del sitio web de la organización."
+        },
+        "logo": {
+          "type": "string",
+          "format": "uri",
+          "description": "La URL del logo de la organización."
+        }
+      },
+      "required": ["name"]
+    },
+    "recruiter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "El nombre del reclutador."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "El correo electrónico del reclutador."
+        },
+        "phone": {
+          "type": "string",
+          "description": "El teléfono del reclutador."
+        }
+      },
+      "required": ["name", "email"]
+    },
+    "jobLocation": {
+      "type": "object",
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "description": "La dirección de la calle donde se encuentra el puesto."
+        },
+        "addressLocality": {
+          "type": "string",
+          "description": "La localidad de la dirección."
+        },
+        "addressRegion": {
+          "type": "string",
+          "description": "La región de la dirección."
+        },
+        "postalCode": {
+          "type": "string",
+          "description": "El código postal de la dirección."
+        },
+        "addressCountry": {
+          "type": "string",
+          "description": "El país de la dirección."
+        },
+        "isoCountry": {
+          "type": "string",
+          "description": "El código ISO2 del país de la ubicación."
+        }
+      },
+      "required": ["streetAddress", "addressLocality", "addressRegion", "postalCode", "addressCountry", "isoCountry"]
+    },
+    "remoteStatus": {
+      "type": "string",
+      "enum": ["none", "temporary", "hybrid", "fully"],
+      "description": "El estado de teletrabajo del puesto."
+    },
+    "baseSalary": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "La moneda del salario, por ejemplo, USD, EUR."
+        },
+        "value": {
+          "type": "number",
+          "description": "La cantidad del salario."
+        },
+        "unitText": {
+          "type": "string",
+          "enum": ["Hora", "Día", "Semana", "Mes", "Año"],
+          "description": "La frecuencia de pago del salario."
+        }
+      },
+      "required": ["currency", "value", "unitText"]
+    },
+    "qualifications": {
+      "type": "string",
+      "description": "Las calificaciones requeridas para el puesto."
+    },
+    "responsibilities": {
+      "type": "string",
+      "description": "Las responsabilidades asociadas con el puesto."
+    },
+    "skills": {
+      "type": "string",
+      "description": "Las habilidades requeridas para el puesto."
+    },
+    "incentiveCompensation": {
+      "type": "string",
+      "description": "Información sobre compensaciones adicionales, como bonificaciones."
+    },
+    "industry": {
+      "type": "string",
+      "description": "El sector de la industria del trabajo."
+    },
+    "workHours": {
+      "type": "string",
+      "description": "Las horas de trabajo del puesto."
+    },
+    "jobBenefits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Los beneficios ofrecidos por el empleador."
+    },
+    "applicationInstructions": {
+      "type": "string",
+      "description": "Instrucciones para postularse al puesto."
+    },
+    "nonDiscriminationPolicy": {
+      "type": "string",
+      "description": "La política de no discriminación del empleador."
+    },
+    "dataProtectionPolicy": {
+      "type": "string",
+      "description": "Información sobre la protección de datos de los solicitantes."
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "identifier",
+    "datePosted",
+    "validThrough",
+    "applyUrl",
+    "employmentType",
+    "employmentLevel",
+    "hiringOrganization",
+    "recruiter",
+    "jobLocation",
+    "remoteStatus",
+    "baseSalary",
+    "nonDiscriminationPolicy",
+    "dataProtectionPolicy"
+  ]
+}
