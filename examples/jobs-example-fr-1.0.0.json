@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Développeur Full Stack",
+    "description": "Nous recherchons un développeur full stack talentueux pour rejoindre notre équipe dynamique. Le candidat idéal aura une solide expérience en développement web et une passion pour la création d'applications innovantes.",
+    "identifier": {
+      "name": "Tech Solutions Inc.",
+      "value": "TSI-DEV-001",
+      "siret": "12345678901234",
+      "nafCode": "6201Z"
+    },
+    "datePosted": "2024-07-12T10:00:00Z",
+    "validThrough": "2024-08-12T23:59:59Z",
+    "url": "https://techsolutions.com/jobs/developpeur-full-stack",
+    "applyUrl": "https://techsolutions.com/jobs/developpeur-full-stack/apply",
+    "employmentType": "PleinTemps",
+    "employmentLevel": "mid",
+    "hiringOrganization": {
+      "name": "Tech Solutions Inc.",
+      "sameAs": "https://techsolutions.com",
+      "logo": "https://techsolutions.com/logo.png"
+    },
+    "recruiter": {
+      "name": "Marie Dupont",
+      "email": "marie.dupont@techsolutions.com",
+      "phone": "0123456789"
+    },
+    "jobLocation": {
+      "streetAddress": "10 rue de la Paix",
+      "addressLocality": "Paris",
+      "addressRegion": "Île-de-France",
+      "postalCode": "75002",
+      "addressCountry": "France",
+      "isoCountry": "FR"
+    },
+    "remoteStatus": "hybrid",
+    "baseSalary": {
+      "currency": "EUR",
+      "value": 45000,
+      "unitText": "An"
+    },
+    "qualifications": "Diplôme en informatique ou domaine connexe. Minimum 3 ans d'expérience en développement web.",
+    "responsibilities": "Développer et maintenir des applications web. Collaborer avec les équipes de conception et de produit.",
+    "skills": "JavaScript, React, Node.js, HTML, CSS",
+    "incentiveCompensation": "Bonus annuel basé sur la performance.",
+    "industry": "Technologie de l'information",
+    "workHours": "35 heures par semaine",
+    "jobBenefits": ["Assurance santé", "Tickets restaurant", "Télétravail flexible"],
+    "applicationInstructions": "Veuillez postuler en ligne en fournissant votre CV et une lettre de motivation.",
+    "nonDiscriminationPolicy": "Nous sommes un employeur qui prône l'égalité des chances et ne pratiquons aucune discrimination.",
+    "dataProtectionPolicy": "Vos données personnelles seront traitées conformément à notre politique de confidentialité disponible sur notre site web."
+  }
+]
