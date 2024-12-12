@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark" />
+    <title>Job Offer Schema Documentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        [data-theme=light],
+        :root:not([data-theme=dark]) {
+            --pico-text-selection-color: rgba(2, 154, 232, 0.25);
+        }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: auto;
+            padding: 1em;
+        }
+        header {
+            justify-content: space-between;
+        }
+        nav {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #ddd;
+        }
+        nav ul {
+            flex-direction: column;
+            align-items: start;
+            list-style-type: none;
+            padding: 0;
+        }
+        nav li {
+            margin-bottom: 10px;
+        }
+        main {
+            flex: 3;
+            flex-direction: column;
+            padding-left: 20px;
+        }
+        .metadata h2, .metadata h3 {
+            margin-top: 1em;
+        }
+        .metadata p {
+            margin-bottom: 1em;
+        }
+        .field h3 {
+            margin-top: 1em;
+        }
+        footer {
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+        .scrollTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        nav::-webkit-scrollbar {
+            width: 12px;
+        }
+        nav::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        nav::-webkit-scrollbar-thumb {
+            background-color: var(--pico-text-selection-color);
+            border-radius: 10px;
+            border: 3px solid #f1f1f1;
+        }
+        nav {
+            scrollbar-width: thin;
+            scrollbar-color: var(--pico-text-selection-color) #f1f1f1;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+        .bounce {
+            animation: bounce 0.5s;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('nav a');
+
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    targetElement.classList.add('bounce');
+
+                    setTimeout(() => {
+                        targetElement.classList.remove('bounce');
+                    }, 1500);
+                });
+            });
+        });
+        function toggleDarkMode() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        }
+        window.onscroll = function() {
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (document.documentElement.scrollTop > document.documentElement.scrollHeight / 2) {
+                scrollTopBtn.style.display = 'block';
+            } else {
+                scrollTopBtn.style.display = 'none';
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</head>
+<body>
+    <header class="container">
+        <h1>Job Offer Schema Documentation</h1>
+        <a href="javascript:void(0);" onclick="toggleDarkMode()" title="Change theme" class="contrast">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="currentColor" class="icon-theme-toggle theme-toggle moon">
+                <clipPath id="theme-toggle-cutout">
+                    <path d="M0-11h25a1 1 0 0017 13v30H0Z"></path>
+                </clipPath>
+                <g clip-path="url(#theme-toggle-cutout)">
+                    <circle cx="16" cy="16" r="8.4"></circle>
+                    <path d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z"></path>
+                </g>
+            </svg>
+        </a>
+    </header>
+
+    <div class="container">
+
+        <nav>
+            <ul>
+                <li><a href="#title">Title</a></li>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#identifier">Identifier</a></li>
+                <li><a href="#datePosted">Date Posted</a></li>
+                <li><a href="#validThrough">Valid Through</a></li>
+                <li><a href="#url">URL</a></li>
+                <li><a href="#applyUrl">Apply URL</a></li>
+                <li><a href="#employmentType">Employment Type</a></li>
+                <li><a href="#employmentLevel">Employment Level</a></li>
+                <li><a href="#hiringOrganization">Hiring Organization</a></li>
+                <li><a href="#recruiter">Recruiter</a></li>
+                <li><a href="#jobLocation">Job Location</a></li>
+                <li><a href="#remoteStatus">Remote Status</a></li>
+                <li><a href="#baseSalary">Base Salary</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#responsibilities">Responsibilities</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#incentiveCompensation">Incentive Compensation</a></li>
+                <li><a href="#industry">Industry</a></li>
+                <li><a href="#workHours">Work Hours</a></li>
+                <li><a href="#jobBenefits">Job Benefits</a></li>
+                <li><a href="#applicationInstructions">Application Instructions</a></li>
+                <li><a href="#nonDiscriminationPolicy">Non-Discrimination Policy</a></li>
+                <li><a href="#dataProtectionPolicy">Data Protection Policy</a></li>
+            </ul>
+        </nav>
+        <main class="container">
+            <article>
+                <div class="metadata">
+                    <h2>Metadata</h2>
+                    <div id="version" class="field">
+                        <h3>Version</h3>
+                        <p>1.0.0</p>
+                    </div>
+                    <div id="license" class="field">
+                        <h3>License</h3>
+                        <p>This project is licensed under the MIT License. See the LICENSE file for details.</p>
+                    </div>
+                    <div id="changelog" class="field">
+                        <h3>Changelog</h3>
+                        <p><strong>1.0.0</strong> - Initial release with full schema documentation in English.</p>
+                    </div>
+                </div>
+            </article>
+            <article id="title" class="field">
+                <header><h3>Title</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The job title.</footer>
+            </article>
+            <article id="description" class="field">
+                <header><h3>Description</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> A detailed description of the job responsibilities and requirements.</footer>
+            </article>
+            <article id="identifier" class="field">
+                <header><h3>Identifier</h3></header>
+                <p><strong>Type:</strong> object</p>
+                <footer>
+                    <strong>Description:</strong> An object containing identification details for the job offer.
+                    <br><strong>Properties:</strong>
+                    <ul>
+                        <li><strong>Name:</strong> string - The name of the company offering the job.</li>
+                        <li><strong>Value:</strong> string - A unique identifier for the job offer.</li>
+                        <li><strong>SIRET:</strong> string - The company's SIRET number.</li>
+                        <li><strong>NAF Code:</strong> string - The NAF code of the company's main activity.</li>
+                    </ul>
+                </footer>
+            </article>
+            <article id="datePosted" class="field">
+                <header><h3>Date Posted</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Format:</strong> date-time<br><strong>Description:</strong> The date and time when the job offer was posted.</footer>
+            </article>
+            <article id="validThrough" class="field">
+                <header><h3>Valid Through</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Format:</strong> date-time<br><strong>Description:</strong> The date and time until the job offer is valid.</footer>
+            </article>
+            <article id="url" class="field">
+                <header><h3>URL</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Format:</strong> uri<br><strong>Description:</strong> The URL of the job posting.</footer>
+            </article>
+            <article id="applyUrl" class="field">
+                <header><h3>Apply URL</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Format:</strong> uri<br><strong>Description:</strong> The URL to apply for the job.</footer>
+            </article>
+            <article id="employmentType" class="field">
+                <header><h3>Employment Type</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The type of employment offered.<br><strong>Enum:</strong> FullTime, PartTime, Contract, Temporary, Internship, Other</footer>
+            </article>
+            <article id="employmentLevel" class="field">
+                <header><h3>Employment Level</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The employment level.<br><strong>Enum:</strong> none, senior, mid, junior</footer>
+            </article>
+            <article id="hiringOrganization" class="field">
+                <header><h3>Hiring Organization</h3></header>
+                <p><strong>Type:</strong> object</p>
+                <footer>
+                    <strong>Description:</strong> An object containing details about the hiring organization.
+                    <br><strong>Properties:</strong>
+                    <ul>
+                        <li><strong>Name:</strong> string - The name of the hiring organization.</li>
+                        <li><strong>Same As:</strong> string, uri - The URL of the organization's website.</li>
+                        <li><strong>Logo:</strong> string, uri - The URL of the organization's logo.</li>
+                    </ul>
+                </footer>
+            </article>
+            <article id="recruiter" class="field">
+                <header><h3>Recruiter</h3></header>
+                <p><strong>Type:</strong> object</p>
+                <footer>
+                    <strong>Description:</strong> An object containing details about the recruiter.
+                    <br><strong>Properties:</strong>
+                    <ul>
+                        <li><strong>Name:</strong> string - The name of the recruiter.</li>
+                        <li><strong>Email:</strong> string, email - The recruiter's email.</li>
+                        <li><strong>Phone:</strong> string - The recruiter's phone number.</li>
+                    </ul>
+                </footer>
+            </article>
+            <article id="jobLocation" class="field">
+                <header><h3>Job Location</h3></header>
+                <p><strong>Type:</strong> object</p>
+                <footer>
+                    <strong>Description:</strong> An object containing details about the job location.
+                    <br><strong>Properties:</strong>
+                    <ul>
+                        <li><strong>Street Address:</strong> string - The street address of the job location.</li>
+                        <li><strong>Address Locality:</strong> string - The locality of the address.</li>
+                        <li><strong>Address Region:</strong> string - The region of the address.</li>
+                        <li><strong>Postal Code:</strong> string - The postal code of the address.</li>
+                        <li><strong>Address Country:</strong> string - The country of the address.</li>
+                        <li><strong>ISO Country:</strong> string - The ISO2 code of the country.</li>
+                    </ul>
+                </footer>
+            </article>
+            <article id="remoteStatus" class="field">
+                <header><h3>Remote Status</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The remote work status of the job.<br><strong>Enum:</strong> none, temporary, hybrid, fully</footer>
+            </article>
+            <article id="baseSalary" class="field">
+                <header><h3>Base Salary</h3></header>
+                <p><strong>Type:</strong> object</p>
+                <footer>
+                    <strong>Description:</strong> An object containing details about the base salary.
+                    <br><strong>Properties:</strong>
+                    <ul>
+                        <li><strong>Currency:</strong> string - The currency of the salary, e.g., USD, EUR.</li>
+                        <li><strong>Value:</strong> number - The amount of the salary.</li>
+                        <li><strong>Unit Text:</strong> string - The frequency of salary payment (Enum: Hour, Day, Week, Month, Year).</li>
+                    </ul>
+                </footer>
+            </article>
+            <article id="qualifications" class="field">
+                <header><h3>Qualifications</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The qualifications required for the job.</footer>
+            </article>
+            <article id="responsibilities" class="field">
+                <header><h3>Responsibilities</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The responsibilities associated with the job.</footer>
+            </article>
+            <article id="skills" class="field">
+                <header><h3>Skills</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The skills required for the job.</footer>
+            </article>
+            <article id="incentiveCompensation" class="field">
+                <header><h3>Incentive Compensation</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> Information about additional compensation, such as bonuses.</footer>
+            </article>
+            <article id="industry" class="field">
+                <header><h3>Industry</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The industry of the job.</footer>
+            </article>
+            <article id="workHours" class="field">
+                <header><h3>Work Hours</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The work hours of the job.</footer>
+            </article>
+            <article id="jobBenefits" class="field">
+                <header><h3>Job Benefits</h3></header>
+                <p><strong>Type:</strong> array of strings</p>
+                <footer><strong>Description:</strong> The benefits offered by the employer.</footer>
+            </article>
+            <article id="applicationInstructions" class="field">
+                <header><h3>Application Instructions</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> Instructions to apply for the job.</footer>
+            </article>
+            <article id="nonDiscriminationPolicy" class="field">
+                <header><h3>Non-Discrimination Policy</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> The employer's non-discrimination policy.</footer>
+            </article>
+            <article id="dataProtectionPolicy" class="field">
+                <header><h3>Data Protection Policy</h3></header>
+                <p><strong>Type:</strong> string</p>
+                <footer><strong>Description:</strong> Information about the data protection policy for applicants.</footer>
+            </article>
+        </main>
+    </div>
+
+    <footer class="container">
+        <p>&copy; 2024 Job Offer Schema Project. All Rights Reserved. This documentation uses <a href="https://picocss.com" target="_blank">Pico.css</a>.</p>
+    </footer>
+
+    <button id="scrollTopBtn" class="scrollTop" onclick="scrollToTop()">Top</button>
+</body>
+</html>
