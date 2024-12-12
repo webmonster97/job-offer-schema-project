@@ -1,0 +1,52 @@
+[
+  {
+    "title": "Full Stack Developer",
+    "description": "We are looking for a talented full stack developer to join our dynamic team. The ideal candidate will have a strong background in web development and a passion for creating innovative applications.",
+    "identifier": {
+      "name": "Tech Solutions Inc.",
+      "value": "TSI-DEV-001",
+      "siret": "12345678901234",
+      "nafCode": "6201Z"
+    },
+    "datePosted": "2024-07-12T10:00:00Z",
+    "validThrough": "2024-08-12T23:59:59Z",
+    "url": "https://techsolutions.com/jobs/full-stack-developer",
+    "applyUrl": "https://techsolutions.com/jobs/full-stack-developer/apply",
+    "employmentType": "FullTime",
+    "employmentLevel": "mid",
+    "hiringOrganization": {
+      "name": "Tech Solutions Inc.",
+      "sameAs": "https://techsolutions.com",
+      "logo": "https://techsolutions.com/logo.png"
+    },
+    "recruiter": {
+      "name": "Marie Dupont",
+      "email": "marie.dupont@techsolutions.com",
+      "phone": "0123456789"
+    },
+    "jobLocation": {
+      "streetAddress": "10 Peace Street",
+      "addressLocality": "London",
+      "addressRegion": "England",
+      "postalCode": "EC1A 1AA",
+      "addressCountry": "England",
+      "isoCountry": "GB"
+    },
+    "remoteStatus": "hybrid",
+    "baseSalary": {
+      "currency": "GBP",
+      "value": 45000,
+      "unitText": "Year"
+    },
+    "qualifications": "Degree in computer science or related field. Minimum 3 years of experience in web development.",
+    "responsibilities": "Develop and maintain web applications. Collaborate with design and product teams.",
+    "skills": "JavaScript, React, Node.js, HTML, CSS",
+    "incentiveCompensation": "Annual performance-based bonus.",
+    "industry": "Information Technology",
+    "workHours": "35 hours per week",
+    "jobBenefits": ["Health insurance", "Meal vouchers", "Flexible remote work"],
+    "applicationInstructions": "Please apply online by submitting your resume and a cover letter.",
+    "nonDiscriminationPolicy": "We are an equal opportunity employer and do not discriminate.",
+    "dataProtectionPolicy": "Your personal data will be processed in accordance with our privacy policy available on our website."
+  }
+]
